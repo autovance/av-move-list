@@ -62,7 +62,7 @@ TODO
           '<label class="control-label" for="multiSelectSelected">{{ selectedLabel }} ' +
               '({{ model.length }})</label>' +
           '<select ng-model="selected.current" multiple ' +
-              'class="pull-left" ng-options="e as e[displayAttr] for e in model ng-size="{{ numItems }}">' +
+              'class="pull-left" ng-options="e as e[displayAttr] for e in model" ng-size="{{ numItems }}">' +
               '</select>' +
         '</div>' +
       '</div>',
