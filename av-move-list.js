@@ -25,9 +25,9 @@ TODO
 
   angular
     .module('autovance.av-move-list', [])
-    .directive('avMoveList', MoveListDirective);
+    .directive('avMoveList', ['$q', MoveListDirective]);
 
-  function MoveListDirective() {
+  function MoveListDirective($q) {
     return {
       restrict: 'EA',
       require: 'ngModel',
@@ -104,6 +104,27 @@ TODO
           scope.model = filterAvailable(scope.model, scope.selected.current);
           scope.refreshAvailable();
         };
+
+        // Handles case when scope data hasn't been initialized yet
+        var dataLoading = function(scopeAttr) {
+          var loading = $q.defer();
+
+          if(scope[scopeAttr]) {
+            loading.resolve(scope[scopeAttr]);
+          } else {
+            scope.$watch(scopeAttr, function(newValue, oldValue) {
+              if(newValue) {
+                loading.resolve(newValue);
+              }
+            });
+          }
+
+          return loading.promise;
+        };
+
+        $q.all([dataLoading("model"), dataLoading("all")]).then(function (results) {
+          scope.refreshAvailable();
+        });
       }
     };
   }
