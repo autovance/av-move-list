@@ -25,9 +25,9 @@ TODO
 
   angular
     .module('autovance.av-move-list', [])
-    .directive('avMoveList', ['$q', MoveListDirective]);
+    .directive('avMoveList', MoveListDirective);
 
-  function MoveListDirective($q) {
+  function MoveListDirective() {
     return {
       restrict: 'EA',
       require: 'ngModel',
@@ -35,8 +35,8 @@ TODO
         selectedLabel: '@',
         availableLabel: '@',
         displayAttr: '@',
-        idAttr: '@',
         all: '=',
+        numItems: '@',
         model: '=ngModel'
       },
 
@@ -45,8 +45,8 @@ TODO
         '<div class="select">' +
           '<label class="control-label" for="multiSelectAvailable">{{ availableLabel }} ' +
               '({{ available.length }})</label>' +
-          '<select id="multiSelectAvailable" ng-model="selected.available" multiple ' +
-              'ng-options="e as e[displayAttr] for e in available"></select>' +
+          '<select ng-model="selected.available" multiple ' +
+              'ng-options="e as e[displayAttr] for e in available" ng-size="{{ numItems }}"></select>' +
         '</div>' +
         '<div class="select buttons">' +
           '<button class="btn mover left" ng-click="add()" title="Add selected" ' +
@@ -61,8 +61,8 @@ TODO
         '<div class="select">' +
           '<label class="control-label" for="multiSelectSelected">{{ selectedLabel }} ' +
               '({{ model.length }})</label>' +
-          '<select id="currentRoles" ng-model="selected.current" multiple ' +
-              'class="pull-left" ng-options="e as e[displayAttr] for e in model">' +
+          '<select ng-model="selected.current" multiple ' +
+              'class="pull-left" ng-options="e as e[displayAttr] for e in model ng-size="{{ numItems }}">' +
               '</select>' +
         '</div>' +
       '</div>',
@@ -104,27 +104,6 @@ TODO
           scope.model = filterAvailable(scope.model, scope.selected.current);
           scope.refreshAvailable();
         };
-
-        // Handles case when scope data hasn't been initialized yet
-        var dataLoading = function(scopeAttr) {
-          var loading = $q.defer();
-
-          if(scope[scopeAttr]) {
-            loading.resolve(scope[scopeAttr]);
-          } else {
-            scope.$watch(scopeAttr, function(newValue, oldValue) {
-              if(newValue) {
-                loading.resolve(newValue);
-              }
-            });
-          }
-
-          return loading.promise;
-        };
-
-        $q.all([dataLoading("model"), dataLoading("all")]).then(function (results) {
-          scope.refreshAvailable();
-        });
       }
     };
   }
