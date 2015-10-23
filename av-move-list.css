@@ -1,0 +1,60 @@
+/* glyphicons */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('bower_components/sass-bootstrap-glyphicons/fonts/glyphiconshalflings-regular.eot');
+  src: url('bower_components/sass-bootstrap-glyphicons/fonts/glyphiconshalflings-regular.eot?#iefix') format('embedded-opentype'), url('bower_components/sass-bootstrap-glyphicons/fonts/glyphiconshalflings-regular.woff') format('woff'), url('bower_components/sass-bootstrap-glyphicons/fonts/glyphiconshalflings-regular.ttf') format('truetype'), url('bower_components/sass-bootstrap-glyphicons/fonts/glyphiconshalflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.glyphicon:before {
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.glyphicon-arrow-left:before {
+  content: "\e091";
+}
+.glyphicon-arrow-right:before {
+  content: "\e092";
+}
+/* av-move-list */
+.multiSelect {
+  overflow: auto;
+}
+.multiSelect .select {
+  margin-right: 20px;
+  float: left;
+}
+.multiSelect .select select {
+  min-width: 200px;
+}
+.multiSelect .text {
+  clear: both;
+  font-size: 11px;
+}
+.multiSelect .btn.mover {
+  display: block;
+  margin-top: 25px;
+  vertical-align: top;
+}
+.multiSelect .btn.mover.left {
+  padding: 3px 8px 2px 6px;
+}
+.multiSelect .btn.mover.right {
+  margin-top: 24px;
+  padding: 3px 7px 2px;
+}
+.multiSelect .btn.mover i {
+  margin: 0;
+}
+.multiSelect label {
+  display: block;
+  margin-bottom: 5px;
+}
+.multiSelect label::after {
+  content: ":";
+}
+/* demo css */
+li {
+  list-style-type: disc;
+}
