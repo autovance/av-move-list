@@ -43,27 +43,27 @@ TODO
       template:
       '<div class="multiSelect">' +
         '<div class="select">' +
+          '<label class="control-label" for="multiSelectAvailable">{{ availableLabel }} ' +
+              '({{ available.length }})</label>' +
+          '<select id="multiSelectAvailable" ng-model="selected.available" multiple ' +
+              'ng-options="e as e[displayAttr] for e in available"></select>' +
+        '</div>' +
+        '<div class="select buttons">' +
+          '<button class="btn mover left" ng-click="add()" title="Add selected" ' +
+              'ng-disabled="selected.available.length == 0">' +
+            '<i class="glyphicon glyphicon-arrow-right"></i>' +
+          '</button>' +
+          '<button class="btn mover right" ng-click="remove()" title="Remove selected" ' +
+              'ng-disabled="selected.current.length == 0">' +
+            '<i class="glyphicon glyphicon-arrow-left"></i>' +
+          '</button>' +
+        '</div>' +
+        '<div class="select">' +
           '<label class="control-label" for="multiSelectSelected">{{ selectedLabel }} ' +
               '({{ model.length }})</label>' +
           '<select id="currentRoles" ng-model="selected.current" multiple ' +
               'class="pull-left" ng-options="e as e[displayAttr] for e in model">' +
               '</select>' +
-        '</div>' +
-        '<div class="select buttons">' +
-          '<button class="btn mover left" ng-click="add()" title="Add selected" ' +
-              'ng-disabled="selected.available.length == 0">' +
-            '<i class="glyphicon glyphicon-arrow-left"></i>' +
-          '</button>' +
-          '<button class="btn mover right" ng-click="remove()" title="Remove selected" ' +
-              'ng-disabled="selected.current.length == 0">' +
-            '<i class="glyphicon glyphicon-arrow-right"></i>' +
-          '</button>' +
-        '</div>' +
-        '<div class="select">' +
-          '<label class="control-label" for="multiSelectAvailable">{{ availableLabel }} ' +
-              '({{ available.length }})</label>' +
-          '<select id="multiSelectAvailable" ng-model="selected.available" multiple ' +
-              'ng-options="e as e[displayAttr] for e in available"></select>' +
         '</div>' +
       '</div>',
 
