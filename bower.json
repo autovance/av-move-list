@@ -1,0 +1,31 @@
+{
+	"name": "ng-move-list",
+	"version": "1.0.0",
+	"authors": [
+		"Chris Rabl <chris@autovance.com>"
+	],
+	"description": "AngularJS directive for moving items between two multi-select lists",
+	"keywords": [
+		"multiselect",
+		"form",
+		"input",
+		"angular",
+		"directive"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"angular":"~1.2.0",
+		"angular-animate":"~1.2.0",
+		"angular-sanitize":"~1.2.0",
+		"angular-touch":"~1.2.0"
+	},
+	"devDependencies": {
+	}
+}
