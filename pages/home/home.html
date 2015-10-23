@@ -1,6 +1,7 @@
 <div>
 	<!-- TODO: place directive call here -->
-	{{ home.all_users | json }}
-	{{ home.selected_users | json }}
-	<div av-move-list ng-model="home.selected_users"></div>
+
+	<div av-move-list ng-model="home.selected_users" all="home.all_users" selected-label="Selected users" available-label="Available users" display-attr="user_profile_id"></div>
+	<pre>{{ home.all_users | json }}</pre>
+	<pre>{{ home.selected_users | json }}</pre>
 </div>
