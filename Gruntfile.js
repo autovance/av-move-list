@@ -84,8 +84,8 @@ module.exports = function(grunt) {
 				},
 				build: {
 					files:  {},
-					src:    '-list.js',
-					dest:   '-list.min.js'
+					src:    'av-move-list.js',
+					dest:   'av-move-list.min.js'
 				}
 			},
 			less: {
@@ -94,14 +94,14 @@ module.exports = function(grunt) {
 					},
 					files: {
 						"main.css": "_base.less",
-						"-list.css": "_-list.less"
+						"av-move-list.css": "_av-move-list.less"
 					}
 				}
 			},
 			cssmin: {
 				dev: {
-					src: ['-list.css'],
-					dest: '-list.min.css'
+					src: ['av-move-list.css'],
+					dest: 'av-move-list.min.css'
 				}
 			}/*,
 			karma: {
@@ -112,8 +112,8 @@ module.exports = function(grunt) {
 				}
 			}*/
 		});
-		
-		
+
+
 		/**
 		register/define grunt tasks
 		@toc 6.
@@ -121,7 +121,7 @@ module.exports = function(grunt) {
 		// Default task(s).
 		// grunt.registerTask('default', ['jshint:beforeconcat', 'less:development', 'concat:devJs', 'concat:devCss']);
 		grunt.registerTask('default', ['jshint:beforeconcatQ', 'less:development', 'cssmin', 'uglify:build']);
-	
+
 	}
 	init({});		//initialize here for defaults (init may be called again later within a task)
 

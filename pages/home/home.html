@@ -1,3 +1,6 @@
-<div ng-controller='HomeCtrl'>	
+<div>
 	<!-- TODO: place directive call here -->
+	{{ home.all_users | json }}
+	{{ home.selected_users | json }}
+	<div av-move-list ng-model="home.selected_users"></div>
 </div>

@@ -7,7 +7,7 @@
 
 angular.module('myApp', [
 'ngRoute', 'ngSanitize', 'ngTouch', 'ngAnimate',		//additional angular modules
-'autovance.ng-move-list'
+'autovance.av-move-list'
 ]).
 config(['$routeProvider', '$locationProvider', '$compileProvider', function($routeProvider, $locationProvider, $compileProvider) {
 	/**
@@ -15,7 +15,7 @@ config(['$routeProvider', '$locationProvider', '$compileProvider', function($rou
 	@toc 1.
 	*/
 	$locationProvider.html5Mode(false);		//can't use this with github pages / if don't have access to the server
-	
+
 	// var staticPath ='/';
 	var staticPath;
 	// staticPath ='/angular-directives/ng-move-list/';		//local
@@ -23,10 +23,13 @@ config(['$routeProvider', '$locationProvider', '$compileProvider', function($rou
 	// staticPath ='/ng-move-list/';		//gh-pages
 	var appPathRoute ='/';
 	var pagesPath =staticPath+'pages/';
-	
-	
-	$routeProvider.when(appPathRoute+'home', {templateUrl: pagesPath+'home/home.html'});
+
+
+	$routeProvider.when(appPathRoute+'home', {
+		controller: 'HomeCtrl as home',
+		templateUrl: pagesPath + 'home/home.html'
+	});
 
 	$routeProvider.otherwise({redirectTo: appPathRoute+'home'});
-	
+
 }]);
