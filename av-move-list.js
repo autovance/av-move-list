@@ -89,6 +89,16 @@ TODO
           return available;
         }
 
+        scope.$watch('all', function() {
+          // if the list of options changes, refresh available items
+          scope.refreshAvailable();
+        });
+
+        scope.$watch('model', function() {
+          // similarly, if the model changes
+          scope.refreshAvailable();
+        });
+
         scope.refreshAvailable = function() {
           scope.available = filterAvailable(scope.all, scope.model);
           scope.selected.available = [];
