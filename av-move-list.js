@@ -35,6 +35,7 @@ TODO
         selectedLabel: '@',
         availableLabel: '@',
         displayAttr: '@',
+        idAttr: '@',
         all: '=',
         numItems: '@',
         model: '=ngModel'
@@ -73,13 +74,13 @@ TODO
           current: []
         };
 
-        // Filters out items in 'all' that are also in 'selected'. Compares by value.
+        // Filters out items in 'all' that are also in 'selected'. Compares by idAttr.
         function filterAvailable(all, selected) {
           var available = all.filter(function (item) {
 
             // item is selected if it is first OR second, OR third OR ... in the array of selected items
             var is_selected = selected.reduce(function (item_is_selected, selected_item) {
-              return item_is_selected || angular.equals(item, selected_item);
+              return item_is_selected || item[scope.idAttr] === selected_item[scope.idAttr];
             }, false);
 
             // item is available if it is NOT selected
